@@ -6,7 +6,8 @@
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="js/js.js"></script>    
+    <script src="js/js.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 </head>
 
 <body>
@@ -42,26 +43,24 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-    <form action="">
-        <div role="main">
-            <div class="col-md-8">
-                <label>Nome: </label>
-                <input class="form-control" type="text" id="txtNome">
-            </div>
-            <div class="col-md-6">
-                <label>E-mail: </label>
-                <input class="form-control" type="text" id="txtEmail">
-            </div>
-            <div class="col-md-6">
-                <label>Telefone: </label>
-                <input class="form-control" type="text" id="txtTelefone">
-            </div>                
+    <div role="main">
+        <div class="col-md-8">
+            <label>Nome: </label>
+            <input class="form-control" type="text" id="txtNome">
         </div>
-        <div class="col-md-12" style="padding:10px;">
-            <button type="submit" class="btn btn-primary btn-lg" onclick="imprimir();" id="btn1">Submit</button>                                    
+        <div class="col-md-6">
+            <label>E-mail: </label>
+            <input class="form-control" type="text" id="txtEmail">
         </div>
-    </form>
-
+        <div class="col-md-6">
+            <label>Telefone: </label>
+            <input class="form-control" type="text" id="txtTelefone">
+        </div>                
+    </div>        
+    <div class="col-md-12" style="padding:10px;">
+        <button id="btn1" type="submit" class="btn btn-primary btn-lg" onclick="imprimir();">Submit</button>                                    
+        <button id="btn2" type="submit" class="btn btn-primary btn-lg" onclick="imprimir();">Aleta</button>                                    
+    </div>
     <div class="content">
         <div class="col-md-6" id="divNome"></div>
     </div>
