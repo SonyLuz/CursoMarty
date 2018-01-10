@@ -58,15 +58,16 @@ $("#carregarLista").ready(function(){
             "<td>"+element.nome+"</td> "+
             "<td>"+element.email+"</td> "+
             "<td>"+element.telefone+"</td> "+
-            "<td><button onclick=\"Remover("+element.id+");\" type=\"submit\" class=\"btn btn-danger btn-sm\">Remover</button></td>"+
+            "<td><button onclick=\"Remover(string pessoa, "+element.id+");\" type=\"submit\" class=\"btn btn-danger btn-sm\">Remover</button></td>"+
             "</tr>");
         }); 
     }     
 });
 
 //Remove TR
-function Remover(res)
+function Remover(name, res)
 {    //console.log($(res).parent().parent());
+    var items = GetItem(name);
     localStorage.removeItem(res);    
 }
 
