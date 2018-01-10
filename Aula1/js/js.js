@@ -2,6 +2,7 @@
 //   console.log("teste");
 // })
 
+// objeto Json
 var data = [
     {
         "id": 4,
@@ -23,36 +24,73 @@ var data = [
     }
 ];
 
+// Imprime Console
 var imprimir = function()
 {
     var nome = $("#txtNome");
     var email = $("#txtEmail");
     var telefone = $("#txtTelefone");
+    console.log(nome.val() + email.val() + telefone.val())
 }
 
+//Imprime na tela
 $(function(){
     $("#btn1").click(function(){
         $("#divNome").append( $("#txtNome").val() +" - "+ $("#txtEmail").val()+" - "+ $("#txtTelefone").val() );
     });
 })
 
+//Imprime na tela
 $(function(){
     $("#btn2").click(function(){
         alert( $("#txtNome").val() +" - "+ $("#txtEmail").val()+" - "+ $("#txtTelefone").val() );
     });
 })
 
+//Carrega tabela
+$("#carregarLista").ready(function(){
+    var itemLocalStorage = GetItem("pessoa");
+    if(itemLocalStorage != null)
+    {
+        itemLocalStorage.forEach(element => {
+            $("#tabelaLista").append("<tr> "+
+            "<td>"+element.id+"</td> "+
+            "<td>"+element.nome+"</td> "+
+            "<td>"+element.email+"</td> "+
+            "<td>"+element.telefone+"</td> "+
+            "<td><button onclick=\"Remover("+element.id+");\" type=\"submit\" class=\"btn btn-danger btn-sm\">Remover</button></td>"+
+            "</tr>");
+        }); 
+    }     
+});
+
+//Remove TR
+function Remover(res)
+{    //console.log($(res).parent().parent());
+    localStorage.removeItem(res);    
+}
+
+//Cadastrar Json
 $(function(){
-    $("#carregarLista").click(function(){
-        $.each(data, function(i, item) {
-        $("#tabelaLista").append("<tr> "+
-        "<td>"+data[i].id+"</td> "+
-        "<td>"+data[i].nome+"</td> "+
-        "<td>"+data[i].email+"</td> "+
-        "<td>"+data[i].telefone+"</td> "+
-        "<td><button id=\"btnRemover\" type=\"submit\" class=\"btn btn-danger btn-sm\">Remover</button></td> "+
-      "</tr>");
-        })        
+    $("#btn3").click(function(){
+        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val())
+        {
+            data.push(
+                {id: 7, nome: $("#txtNome").val(), email: $("#txtEmail").val(), telefone: $("#txtTelefone").val()}
+                //{id: 7, nome: "Sony Luz", email: "comedy@", telefone: "41 999999999"}
+            );
+
+            SetItem("pessoa", data)
+        }
     });
 })
 
+function SetItem(name, objeto)
+{
+    localStorage.setItem(name, JSON.stringify(objeto));    
+}
+
+function GetItem(name)
+{
+    return JSON.parse(localStorage.getItem(name));
+}
