@@ -3,24 +3,33 @@
 // })
 
 // objeto Json
+// var data = [
+//     {
+//         "id": 4,
+//         "nome": "Marty",
+//         "email": "email@teste.com",
+//         "telefone": "41 999999999"
+//     },
+//     {
+//         "id": 5,
+//         "nome": "Joao",
+//         "email": "joao@teste.com",
+//         "telefone": "41 888888888"
+//     },
+//     {
+//         "id": 6,
+//         "nome": "Maria",
+//         "email": "maria@teste.com",
+//         "telefone": "41 988889999"
+//     }
+// ];
+
 var data = [
     {
-        "id": 4,
-        "nome": "Marty",
-        "email": "email@teste.com",
-        "telefone": "41 999999999"
-    },
-    {
-        "id": 5,
-        "nome": "Joao",
-        "email": "joao@teste.com",
-        "telefone": "41 888888888"
-    },
-    {
-        "id": 6,
-        "nome": "Maria",
-        "email": "maria@teste.com",
-        "telefone": "41 988889999"
+        "id": 0,
+        "nome": "",
+        "email": "",
+        "telefone": ""
     }
 ];
 
@@ -52,23 +61,30 @@ $("#carregarLista").ready(function(){
     var itemLocalStorage = GetItem("pessoa");
     if(itemLocalStorage != null)
     {
+        var name = "pessoa";
         itemLocalStorage.forEach(element => {
             $("#tabelaLista").append("<tr> "+
             "<td>"+element.id+"</td> "+
             "<td>"+element.nome+"</td> "+
             "<td>"+element.email+"</td> "+
             "<td>"+element.telefone+"</td> "+
-            "<td><button onclick=\"Remover(string pessoa, "+element.id+");\" type=\"submit\" class=\"btn btn-danger btn-sm\">Remover</button></td>"+
+            "<td><button onclick=\"Remover("+element.id+");\" type=\"submit\" class=\"btn btn-danger btn-sm\">Remover</button></td>"+
             "</tr>");
         }); 
     }     
 });
 
 //Remove TR
-function Remover(name, res)
+function Remover(res)
 {    //console.log($(res).parent().parent());
-    var items = GetItem(name);
-    localStorage.removeItem(res);    
+    var itemsPessoa = GetItem("pessoa");
+    itemsPessoa.forEach(element => {
+        if(element.id === res)
+        {
+            localStorage.removeItem(element);
+        }
+    });
+    SetItem("pessoa", itemsPessoa);
 }
 
 //Cadastrar Json
@@ -77,21 +93,33 @@ $(function(){
         if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val())
         {
             data.push(
-                {id: 7, nome: $("#txtNome").val(), email: $("#txtEmail").val(), telefone: $("#txtTelefone").val()}
-                //{id: 7, nome: "Sony Luz", email: "comedy@", telefone: "41 999999999"}
+                {id: data.lastIndexOf.id ++, nome: $("#txtNome").val(), email: $("#txtEmail").val(), telefone: $("#txtTelefone").val()}
             );
 
-            SetItem("pessoa", data)
+            SetItem("pessoa", data);
+            ClearCadastro();
+            alert("Cadastrado com sucesso.");
+            
         }
     });
 })
 
+//set items localstorage
 function SetItem(name, objeto)
 {
-    localStorage.setItem(name, JSON.stringify(objeto));    
+    localStorage.setItem(name, JSON.stringify(objeto));   
 }
 
+//Get items localstorage
 function GetItem(name)
 {
     return JSON.parse(localStorage.getItem(name));
+}
+
+//clear cadastro
+function ClearCadastro()
+{
+    $("#txtNome").val("");
+    $("#txtEmail").val("");
+    $("#txtTelefone").val("");
 }
