@@ -77,14 +77,9 @@ $("#carregarLista").ready(function(){
 //Remove TR
 function Remover(res)
 {    //console.log($(res).parent().parent());
-    var itemsPessoa = GetItem("pessoa");
-    itemsPessoa.forEach(element => {
-        if(element.id === res)
-        {
-            localStorage.removeItem(element);
-        }
-    });
-    SetItem("pessoa", itemsPessoa);
+    localStorage.splice(index, res);
+    // localStorage.setItem('pessoa',JSON.stringify(questions));
+
 }
 
 //Cadastrar Json
