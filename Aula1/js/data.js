@@ -1,7 +1,9 @@
-var data = {
-    pessoas: {},
+var servicePessoa = {
+    pessoas: new Array(),
     gerarGuid: _gerarGuid,
     inserirPessoas: _inserirPessoas,
+    getItem: _getItem,
+    setItem: _setItem,
     // alterarPessoas: _alterarPessoas,
     removerPessoas: _removerPessoas,
     // retornaPorID: _retornaPorId
@@ -11,40 +13,43 @@ Inicializar();
 
 function Inicializar()
 {
-    var data = GetItem("data");
-    if(data != null)
-        this.data.pessoas = data;
+    var data = _getItem("data");
+    console.log(data);
+    if(data != undefined)
+        servicePessoa.pessoas = data;
     else
-        this.data.pessoas = new Array();
+        servicePessoa.pessoas = new Array();
 }
 
 //set items localstorage
-function SetItem(name, objeto)
+function _setItem(name, objeto)
 {
     localStorage.setItem(name, JSON.stringify(objeto));   
 }
 
 //Get items localstorage
-function GetItem(name)
+function _getItem(name)
 {
     return JSON.parse(localStorage.getItem(name));
 }
 
 function _inserirPessoas(pessoa)
 {
-    data.pessoas.push(pessoa);
-    SetItem("data", pessoa); 
+    console.log(servicePessoa.pessoas);
+    servicePessoa.pessoas.push(pessoa);
+    _setItem("data", servicePessoa.pessoas); 
     
 }
 
 function _removerPessoas(idPessoa)
 {
-    var objeto = GetItem("data");
-    for (i=0;i<objeto.pessoas.length;i++)
+    var objeto = _getItem("data");
+    for (i=0;i<objeto.length;i++)
     {
-        if (objeto.pessoas[i].id == idPessoa) 
-            objeto.pessoas.splice(i,1);
+        if (objeto[i].id == idPessoa) 
+            objeto.splice(i,1);
     }
+    _setItem("data", objeto); 
 }
 
 function _gerarGuid() {

@@ -5,7 +5,7 @@ $(document).ready(function(){
 //Carrega tabela
 function CarregarLista()
 {
-    var itemLocalStorage = GetItem("data");
+    var itemLocalStorage = servicePessoa.getItem("data");
     if(itemLocalStorage != null)
     {
         $("#tabelaLista").html("");
@@ -24,6 +24,6 @@ function CarregarLista()
 //Remove TR
 function Remover(idItem)
 {    
-    data.removerPessoas(idItem);
+    servicePessoa.removerPessoas(idItem);
     CarregarLista();
 }
