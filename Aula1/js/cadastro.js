@@ -2,7 +2,7 @@ var result = {};
 
 $(document).ready(function(){
         keyValuePairs = location.search.slice(1).split("&");
-        if(result != null || result != undefined || result != "")
+        if(keyValuePairs != null || keyValuePairs != undefined || keyValuePairs != "")
         {
             keyValuePairs.forEach(function(keyValuePair) {
                 keyValuePair = keyValuePair.split('=');
@@ -37,7 +37,7 @@ $(function(){
             servicePessoa.alterarPessoas(newPessoa);
             ClearCadastro();
             alert("Atualizado com sucesso.");
-            
+            $(location).attr('href', 'file:///D:/CursoMarty/CursoMarty/Aula1/Lista.html');                        
         }
     });
 });
