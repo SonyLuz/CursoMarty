@@ -32,12 +32,12 @@ function Editar(idItem)
 {
     var objPessoa = servicePessoa.retornaPorID(idItem);
     var queryString = "id="+objPessoa.id+"&nome="+objPessoa.nome+"&email="+objPessoa.email+"&telefone="+objPessoa.telefone+"";   
-    $(location).attr('href', 'file:///D:/CursoMarty/CursoMarty/Aula1/Cadastro.html?'+queryString);
+    $(location).attr('href', 'Cadastro.html?'+queryString);
 }
 
 //Cadastrar Json
 $(function(){
     $("#btn5").click(function(){
-        $(location).attr('href', 'file:///D:/CursoMarty/CursoMarty/Aula1/Cadastro.html');        
+        $(location).attr('href', 'Cadastro.html');        
     });
 });

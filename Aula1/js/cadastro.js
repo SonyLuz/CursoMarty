@@ -23,7 +23,7 @@ $(function(){
             var newPessoa = {id: servicePessoa.gerarGuid(), nome: $("#txtNome").val(), email: $("#txtEmail").val(), telefone: $("#txtTelefone").val()};
             servicePessoa.inserirPessoas(newPessoa);
             ClearCadastro();
-            $(location).attr('href', 'file:///D:/CursoMarty/CursoMarty/Aula1/Lista.html');            
+            $(location).attr('href', 'Lista.html');            
         }
     });
 });
@@ -37,7 +37,7 @@ $(function(){
             servicePessoa.alterarPessoas(newPessoa);
             ClearCadastro();
             alert("Atualizado com sucesso.");
-            $(location).attr('href', 'file:///D:/CursoMarty/CursoMarty/Aula1/Lista.html');                        
+            $(location).attr('href', 'Lista.html');                        
         }
     });
 });
