@@ -99,4 +99,24 @@ function _gerarGuid() {
     }
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4();
-  }
+}
+
+//Requisição ajax
+$(function(){
+    $("#efetuarRequisicao").click(function(){
+        $("#loader").show().delay(10000);        
+        var root = 'http://localhost:65286/api/';
+        $.ajax({
+            url: root + 'values',
+            method: 'GET',
+            data: {},
+            contentType: "application/json,charset=utf-8",
+            dataType: 'json'
+          }).then(function(data) {
+            console.log(JSON.stringify(data));
+            $("#dadosRequisicao").append(JSON.stringify(data));
+            $("#loader").hide();
+          });
+    });  
+       
+});
