@@ -1,3 +1,5 @@
+var root = 'http://localhost:65286/api/';
+
 $(document).ready(function(){
   CarregarLista();
 })
@@ -5,27 +7,38 @@ $(document).ready(function(){
 //Carrega tabela
 function CarregarLista()
 {
-    var itemLocalStorage = servicePessoa.getItem("data");
-    if(itemLocalStorage != null)
-    {
-        $("#tabelaLista").html("");
-        itemLocalStorage.forEach(element => {
-            $("#tabelaLista").append("<tr> "+
-            "<td>"+element.id+"</td> "+
-            "<td>"+element.nome+"</td> "+
-            "<td>"+element.email+"</td> "+
-            "<td>"+element.telefone+"</td> "+
-            "<td><button onclick=\"Remover('"+element.id+"');\" type=\"submit\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\">Remover</button><button onclick=\"Editar('"+element.id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
-            "</tr>");
-        }); 
-    } 
+    var itemReturn;
+    $.ajax({
+        url: root + 'Pessoa',
+        method: 'GET',
+        data: {},
+        dataType: 'json'
+        }).then(function(data) {
+        console.log(JSON.stringify(data));
+        itemReturn = data;
+        if(itemReturn != null)
+        {
+            $("#tabelaLista").html("");
+            itemReturn.forEach(element => {
+                $("#tabelaLista").append("<tr> "+
+                "<td>"+element.Id+"</td> "+
+                "<td>"+element.Nome+"</td> "+
+                "<td>"+element.Email+"</td> "+
+                "<td>"+element.Telefone+"</td> "+
+                "<td><button onclick=\"Remover('"+element.Id+"');\" type=\"submit\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\">Remover</button><button onclick=\"Editar('"+element.id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
+                "</tr>");
+            }); 
+        } 
+        $("#loader").hide();
+    });
 }
 
 //Remove TR
 function Remover(idItem)
 {    
     servicePessoa.removerPessoas(idItem);
-    CarregarLista();
+      CarregarLista();                                  
+      
 }
 
 function Editar(idItem)
