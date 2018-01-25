@@ -36,8 +36,19 @@ function CarregarLista()
 //Remove TR
 function Remover(idItem)
 {    
-    servicePessoa.removerPessoas(idItem);
-      CarregarLista();                                  
+    //servicePessoa.removerPessoas(idItem);
+    $.ajax({
+        url: root + 'Pessoa/'+idItem,
+        method: 'Delete',
+        dataType: 'json',
+        success: function(result){
+            alert(result); 
+            CarregarLista();                            
+        },
+        error: function(erro){
+            alert(erro);            
+        }
+      }); 
       
 }
 
