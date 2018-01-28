@@ -11,7 +11,6 @@ namespace ApiSony.Controllers
 {
     public class PessoaController : ApiController
     {
-
         // GET: api/Iniciar
         [Route("api/Iniciar")]
         [HttpGet]
@@ -24,7 +23,7 @@ namespace ApiSony.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Error no carregamento da lista!!!");
 
             }
         }
@@ -63,12 +62,16 @@ namespace ApiSony.Controllers
         {
             try
             {
-                Pessoa.AddPessoa(value);
-                return Request.CreateResponse(HttpStatusCode.OK);
+                bool result = Pessoa.AddPessoa(value);
+                if(result)
+                    return Request.CreateResponse(HttpStatusCode.OK, "Cadastrado com sucesso!! Aew cuzão!");
+                else
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, "Deu ruim cuzão! Chama o Marty!!");
+
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Deu mto ruim cuzão! "+ex);
 
             }
         }
@@ -78,8 +81,11 @@ namespace ApiSony.Controllers
         {
             try
             {
-                Pessoa.EditarPessoa(id, value);
-                return Request.CreateResponse(HttpStatusCode.OK);
+                bool resultado = Pessoa.EditarPessoa(id, value);
+                if(resultado)
+                    return Request.CreateResponse(HttpStatusCode.OK, "Atualizado!!! Aeww Cuzão!!");
+                else
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, "Vixe cuzão não alterou!!! Chama o Marty!!");
             }
             catch (Exception ex)
             {
@@ -97,7 +103,7 @@ namespace ApiSony.Controllers
                 if(retorno)
                     return Request.CreateResponse(HttpStatusCode.OK, "Removido com sucesso. Aew Cuzão!!!");
                 else
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Deu ruim ao remover. Vixi Cuzão!!!");
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Deu ruim ao remover. Vixi Cuzão chama o Marty!!");
 
             }
             catch (Exception ex)

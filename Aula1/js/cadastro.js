@@ -12,7 +12,6 @@ $(document).ready(function(){
             $("#txtEmail").val(result.email);
             $("#txtTelefone").val(result.telefone);
         }        
-        //console.log(result);
 })
 
 //Cadastrar Json
@@ -20,10 +19,9 @@ $(function(){
     $("#btn3").click(function(){
         if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val())
         {
-            var newPessoa = {id: servicePessoa.gerarGuid(), nome: $("#txtNome").val(), email: $("#txtEmail").val(), telefone: $("#txtTelefone").val()};
+            var newPessoa = {Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val()};
             servicePessoa.inserirPessoas(newPessoa);
             ClearCadastro();
-            $(location).attr('href', 'Lista.html');            
         }
     });
 });
@@ -33,11 +31,9 @@ $(function(){
     $("#btn4").click(function(){
         if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val())
         {
-            var newPessoa = {id: result.id, nome: $("#txtNome").val(), email: $("#txtEmail").val(), telefone: $("#txtTelefone").val()};
-            servicePessoa.alterarPessoas(newPessoa);
-            ClearCadastro();
-            alert("Atualizado com sucesso.");
-            $(location).attr('href', 'Lista.html');                        
+            var newPessoa = {Id: result.id, Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val()};
+            servicePessoa.alterarPessoas(newPessoa);   
+            ClearCadastro();                   
         }
     });
 });

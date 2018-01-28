@@ -1,14 +1,13 @@
 var servicePessoa = {
-    pessoas: new Array(),
-    gerarGuid: _gerarGuid,
     inserirPessoas: _inserirPessoas,
-    getItem: _getItem,
-    setItem: _setItem,
     alterarPessoas: _alterarPessoas,
     removerPessoas: _removerPessoas,
-    retornaPorID: _retornaPorId
+    retornaPorID: _retornaPorId,
+    CarregarLista: _carregarLista
 };
+
 var root = 'http://localhost:65286/api/';
+
 Inicializar();
 
 function Inicializar()
@@ -16,40 +15,55 @@ function Inicializar()
     $.ajax({
         url: root + 'Iniciar',
         method: 'GET',
-        data: {},
-        contentType: "application/json,charset=utf-8",
-        dataType: 'json'
+        dataType: 'json',
         });
 }
 
-//set items localstorage
-function _setItem(name, objeto)
+//Carregar Lista de pessoas
+function _carregarLista()
 {
-    localStorage.setItem(name, JSON.stringify(objeto));   
-}
-
-//Get items localstorage
-function _getItem(name)
-{
-    return JSON.parse(localStorage.getItem(name));
+    var itemReturn;
+    $.ajax({
+        url: root + 'Pessoa',
+        method: 'GET',
+        data: {},
+        dataType: 'json'
+        }).then(function(data) {
+        itemReturn = data;
+        if(itemReturn != null)
+        {
+            $("#tabelaLista").html("");
+            itemReturn.forEach(element => {
+                $("#tabelaLista").append("<tr> "+
+                "<td>"+element.Id+"</td> "+
+                "<td>"+element.Nome+"</td> "+
+                "<td>"+element.Email+"</td> "+
+                "<td>"+element.Telefone+"</td> "+
+                "<td><button onclick=\"Remover('"+element.Id+"');\" type=\"submit\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\">Remover</button><button onclick=\"Editar('"+element.Id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
+                "</tr>");
+            }); 
+        } 
+        $("#loader").hide();
+    });
 }
 
 //inserir 
 function _inserirPessoas(pessoa)
 {
-    console.log(servicePessoa.pessoas);
-    var objeto = _getItem("data");
-    for (i=0;i<objeto.length;i++)
-    {
-        if (objeto[i].email == pessoa.email) 
-        {
-            alert("Email já cadastrado!");
-            return;            
+    $.ajax({
+        type: 'POST',
+        url: root + 'Pessoa',
+        data: JSON.stringify(pessoa),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function(foi){
+            alert(foi); 
+            $(location).attr('href', 'Lista.html');                          
+        },
+        error: function(erro){
+            alert(erro);            
         }
-    }
-    servicePessoa.pessoas.push(pessoa);
-    _setItem("data", servicePessoa.pessoas); 
-    alert("Cadastrado com sucesso.");    
+    });   
 }
 
 //remover
@@ -61,6 +75,7 @@ function _removerPessoas(idPessoa)
         dataType: 'json',
         success: function(result){
             alert(result); 
+            CarregarLista();                            
         },
         error: function(erro){
             alert(erro);            
@@ -71,42 +86,37 @@ function _removerPessoas(idPessoa)
 //alterar
 function _alterarPessoas(pessoa)
 {
-    var objeto = _getItem("data");
-    for (i=0;i<objeto.length;i++)
-    {
-        if (objeto[i].id == pessoa.id) 
-        {
-            objeto[i].nome = pessoa.nome;
-            objeto[i].email = pessoa.email;
-            objeto[i].telefone = pessoa.telefone;
+    $.ajax({
+        type: 'PUT',
+        url: root + 'Pessoa/'+pessoa.Id,
+        data: JSON.stringify(pessoa),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function(foi){
+            alert(foi); 
+            $(location).attr('href', 'Lista.html');  ;                          
+        },
+        error: function(erro){
+            alert(erro);            
         }
-    }
-    _setItem("data", objeto); 
-    console.log(pessoa);
+    });
 }
 
 //busca por id
 function _retornaPorId(id)
 {
-    var objeto = _getItem("data");
-    for (i=0;i<objeto.length;i++)
-    {
-        if (objeto[i].id == id) 
-            return objeto[i];
-    }
-}
-//gerar guid
-function _gerarGuid() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-      s4() + '-' + s4() + s4() + s4();
+    $.ajax({
+        url: root + 'Pessoa/'+id,
+        method: 'GET',
+        dataType: 'json',
+        }).then(function(data){
+            console.log(JSON.stringify(data));
+            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"";   
+            $(location).attr('href', 'Cadastro.html?'+queryString);
+        });
 }
 
-//Requisição ajax
+//Requisição ajax exemplo
 $(function(){
     $("#efetuarRequisicao").click(function(){
         $("#loader").show().delay(10000);        

@@ -11,6 +11,7 @@ namespace ApiSony.Models
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
+        public static List<Pessoa> ListaPessoa { get; set; }
 
         public Pessoa(string nome, string email, string telefone)
         {
@@ -19,21 +20,36 @@ namespace ApiSony.Models
             Email = email;
             Telefone = telefone;
         }
-
-        public static List<Pessoa> ListaPessoa { get; set; }
-
+ 
         public static bool AddPessoa(Pessoa pessoa)
         {
-            ListaPessoa.Add(pessoa);
-            return true;
+            if(pessoa != null)
+            {
+                ListaPessoa.Add(pessoa);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public static bool EditarPessoa(Guid id, Pessoa pessoa)
         {
-            var newPessoa = pessoa;
-            RemoverPessoa(id);
-            AddPessoa(newPessoa);
-            return true;
+            var newPessoa = RetornaPessoaPorID(id);
+            if(newPessoa != null)
+            {
+                newPessoa.Nome = pessoa.Nome;
+                newPessoa.Email = pessoa.Email;
+                newPessoa.Telefone = pessoa.Telefone;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public static bool RemoverPessoa(Guid id)
@@ -41,13 +57,7 @@ namespace ApiSony.Models
             var pessoa = ListaPessoa;
             if(pessoa != null)
             {
-                foreach(var p in pessoa)
-                {
-                    if(p.Id == id)
-                    {
-                        ListaPessoa.Remove(p);
-                    }
-                }
+                pessoa.Remove(RetornaPessoaPorID(id));
                 return true;
             }
             else
@@ -59,12 +69,12 @@ namespace ApiSony.Models
 
         public static void Iniciar()
         {
-            if(ListaPessoa.Count <= 0)
+            if(ListaPessoa == null || ListaPessoa.Count <= 0)
             {
                 ListaPessoa = new List<Pessoa>();
                 ListaPessoa.Add(new Pessoa("sony", "sony@sony.com", "41995942920"));
                 ListaPessoa.Add(new Pessoa("sony2", "sony@sony.com2", "41995942920"));
-                ListaPessoa.Add(new Pessoa("sony2", "sony@sony.com2", "41995942920"));
+                ListaPessoa.Add(new Pessoa("sony3", "sony@sony.com3", "41995942920"));
             }
             
         }
@@ -76,8 +86,12 @@ namespace ApiSony.Models
 
         public static Pessoa RetornaPessoaPorID(Guid id)
         {
-            var pessoa = ListaPessoa.Select(p => p.Id.Equals(id));
-            return (Pessoa)pessoa;
+            foreach( var p in ListaPessoa)
+            {
+                if (p.Id.Equals(id))
+                    return p;
+            }               
+            return null;
         }
     }
 }
