@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSony", "ApiSony\ApiSony.csproj", "{3E06DA68-A2A3-4191-A3D1-1EA07D2CDDF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSony.BO", "ApiSony.BO\ApiSony.BO.csproj", "{3B72C12E-F31A-40EF-8134-0873A94C2CA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3E06DA68-A2A3-4191-A3D1-1EA07D2CDDF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E06DA68-A2A3-4191-A3D1-1EA07D2CDDF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E06DA68-A2A3-4191-A3D1-1EA07D2CDDF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B72C12E-F31A-40EF-8134-0873A94C2CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B72C12E-F31A-40EF-8134-0873A94C2CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B72C12E-F31A-40EF-8134-0873A94C2CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B72C12E-F31A-40EF-8134-0873A94C2CA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
