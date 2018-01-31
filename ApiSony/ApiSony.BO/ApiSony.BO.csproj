@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +49,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banco\ApiSonyEntity.cs" />
+    <Compile Include="Banco\Pessoa.cs" />
+    <Compile Include="Migrations\201801312104507_MigrationInicial.cs" />
+    <Compile Include="Migrations\201801312104507_MigrationInicial.Designer.cs">
+      <DependentUpon>201801312104507_MigrationInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312108478_AddEmail.cs" />
+    <Compile Include="Migrations\201801312108478_AddEmail.Designer.cs">
+      <DependentUpon>201801312108478_AddEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312111249_AlterarNomeTabela.cs" />
+    <Compile Include="Migrations\201801312111249_AlterarNomeTabela.Designer.cs">
+      <DependentUpon>201801312111249_AlterarNomeTabela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312113247_AlterNameTable.cs" />
+    <Compile Include="Migrations\201801312113247_AlterNameTable.Designer.cs">
+      <DependentUpon>201801312113247_AlterNameTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Banco\" />
+    <EmbeddedResource Include="Migrations\201801312104507_MigrationInicial.resx">
+      <DependentUpon>201801312104507_MigrationInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312108478_AddEmail.resx">
+      <DependentUpon>201801312108478_AddEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312111249_AlterarNomeTabela.resx">
+      <DependentUpon>201801312111249_AlterarNomeTabela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312113247_AlterNameTable.resx">
+      <DependentUpon>201801312113247_AlterNameTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

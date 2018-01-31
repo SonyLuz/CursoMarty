@@ -1,0 +1,16 @@
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\bin\Debug\ApiSony.BO.dll.config
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\bin\Debug\ApiSony.BO.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\bin\Debug\ApiSony.BO.pdb
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\bin\Debug\EntityFramework.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\bin\Debug\EntityFramework.SqlServer.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\bin\Debug\EntityFramework.xml
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\bin\Debug\EntityFramework.SqlServer.xml
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csprojResolveAssemblyReference.cache
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csproj.CoreCompileInputs.cache
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.pdb
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.MigrationInicial.resources
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csproj.GenerateResource.Cache
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.AddEmail.resources
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.AlterarNomeTabela.resources
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.AlterNameTable.resources
