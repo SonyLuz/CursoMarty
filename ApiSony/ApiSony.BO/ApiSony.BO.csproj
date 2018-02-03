@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\ApiSonyEntity.cs" />
+    <Compile Include="Banco\Escolaridade.cs" />
     <Compile Include="Banco\Pessoa.cs" />
+    <Compile Include="Banco\Sexo.cs" />
     <Compile Include="Migrations\201801312104507_MigrationInicial.cs" />
     <Compile Include="Migrations\201801312104507_MigrationInicial.Designer.cs">
       <DependentUpon>201801312104507_MigrationInicial.cs</DependentUpon>
@@ -67,6 +69,22 @@
     <Compile Include="Migrations\201801312113247_AlterNameTable.Designer.cs">
       <DependentUpon>201801312113247_AlterNameTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802031336406_alteradonomecampo.cs" />
+    <Compile Include="Migrations\201802031336406_alteradonomecampo.Designer.cs">
+      <DependentUpon>201802031336406_alteradonomecampo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802031340588_altertablescampostabelasagora.cs" />
+    <Compile Include="Migrations\201802031340588_altertablescampostabelasagora.Designer.cs">
+      <DependentUpon>201802031340588_altertablescampostabelasagora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802031448589_mudancatabelas.cs" />
+    <Compile Include="Migrations\201802031448589_mudancatabelas.Designer.cs">
+      <DependentUpon>201802031448589_mudancatabelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802031540323_AddCampoTelefone.cs" />
+    <Compile Include="Migrations\201802031540323_AddCampoTelefone.Designer.cs">
+      <DependentUpon>201802031540323_AddCampoTelefone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,6 +100,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801312113247_AlterNameTable.resx">
       <DependentUpon>201801312113247_AlterNameTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802031336406_alteradonomecampo.resx">
+      <DependentUpon>201802031336406_alteradonomecampo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802031340588_altertablescampostabelasagora.resx">
+      <DependentUpon>201802031340588_altertablescampostabelasagora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802031448589_mudancatabelas.resx">
+      <DependentUpon>201802031448589_mudancatabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802031540323_AddCampoTelefone.resx">
+      <DependentUpon>201802031540323_AddCampoTelefone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

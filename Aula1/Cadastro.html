@@ -46,21 +46,34 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-    <div role="main">
-        <div class="col-md-8">
+    <div role="main" style="padding:10px;">
+        <div class="col-md-12" style="padding-top:10px;">
             <label>Nome: </label>
             <input class="form-control" type="text" id="txtNome">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12" style="padding-top:10px;">
             <label>E-mail: </label>
             <input class="form-control" type="text" id="txtEmail">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12" style="padding-top:10px;">
             <label>Telefone: </label>
             <input class="form-control" type="text" id="txtTelefone">
+        </div>
+        <div class="col-md-12" style="padding-top:10px;">
+            <div><label>Sexo: </label></div>
+            <label class="radio-inline"><input type="radio" id="rdSexo">Mano</label>
+            <label class="radio-inline"><input type="radio" id="rdSexo">Mina</label>
+        </div> 
+        <div class="col-md-12" style="padding-top:10px;">
+            <label>Nível Escolaridade: </label>
+            <select class="form-control" id="combEscolaridade">
+                    <option>Ensino Medio Completo</option>
+                    <option>Tecnologo Completo</option>
+                    <option>Superior Completo</option>
+            </select>
         </div>                
     </div>        
-    <div class="col-md-12" style="padding:10px;">
+    <div class="col-md-12" style="padding:25px;">
         <!-- <button id="btn1" type="submit" class="btn btn-primary btn-lg" onclick="imprimir();">Submit</button>                                    
         <button id="btn2" type="submit" class="btn btn-primary btn-lg">Alerta</button>                                     -->
         <button id="btn3" type="submit" class="btn btn-success btn-lg">Cadastrar</button>                                    

@@ -11,17 +11,26 @@ $(document).ready(function(){
             $("#txtNome").val(result.nome);
             $("#txtEmail").val(result.email);
             $("#txtTelefone").val(result.telefone);
+            $("#rdSexo").val(result.sexo);
+            $("#combEscolaridade").val(result.escolaridade);
         }        
 })
 
 //Cadastrar Json
 $(function(){
     $("#btn3").click(function(){
-        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val())
+        console.log("sexo "+ $("#rdSexo").val());
+        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $("#rdSexo").val() != "" &&  $("#combEscolaridade").val() != "")
         {
-            var newPessoa = {Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val()};
+            var newPessoa = {Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val(),
+            Id_Sexo: $("#rdSexo").val(),
+            Id_Escolaridade: $("#combEscolaridade").val()};
+
             servicePessoa.inserirPessoas(newPessoa);
             ClearCadastro();
+        }
+        else{
+            alert("Dados sem preencher brow!")
         }
     });
 });
@@ -29,11 +38,19 @@ $(function(){
 //Atualizar
 $(function(){
     $("#btn4").click(function(){
-        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val())
+        console.log("sexo "+ $("#rdSexo").val());
+        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $("#rdSexo").val() != "" &&  $("#combEscolaridade").val() != "")
         {
-            var newPessoa = {Id: result.id, Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val()};
+            var newPessoa = {Id: result.id, Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val(),
+            Id_Sexo: $("#rdSexo").val(),
+            Id_Escolaridade: $("#combEscolaridade").val()
+            };
+
             servicePessoa.alterarPessoas(newPessoa);   
             ClearCadastro();                   
+        }
+        else{
+            alert("Dados sem preencher brow!")
         }
     });
 });
@@ -44,4 +61,6 @@ function ClearCadastro()
     $("#txtNome").val("");
     $("#txtEmail").val("");
     $("#txtTelefone").val("");
+    $("#rdSexo").val("");
+    $("#combEscolaridade").val("");
 }

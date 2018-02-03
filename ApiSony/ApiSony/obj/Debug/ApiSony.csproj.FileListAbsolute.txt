@@ -54,6 +54,8 @@ D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.dll.config
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.pdb
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Antlr3.Runtime.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.BO.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSonyNegocio.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.Agent.Intercept.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.DependencyCollector.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -77,6 +79,11 @@ D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\System.Web.WebPages.Deployment.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\System.Web.WebPages.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\System.Web.WebPages.Razor.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\WebGrease.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\EntityFramework.dll
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.BO.pdb
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.BO.dll.config
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSonyNegocio.pdb
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSonyNegocio.dll.config
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\System.Web.Http.Cors.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Newtonsoft.Json.xml
@@ -96,6 +103,7 @@ D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.DependencyCollector.xm
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.WindowsServer.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.Web.xml
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\EntityFramework.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.csprojResolveAssemblyReference.cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.csproj.CoreCompileInputs.cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.dll

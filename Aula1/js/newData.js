@@ -8,19 +8,9 @@ var servicePessoa = {
 
 var root = 'http://localhost:65286/api/';
 
-Inicializar();
-
-function Inicializar()
-{
-    $.ajax({
-        url: root + 'Iniciar',
-        method: 'GET',
-        dataType: 'json',
-        });
-}
-
 //Carregar Lista de pessoas
-function _carregarLista()
+function 
+_carregarLista()
 {
     var itemReturn;
     $.ajax({
@@ -39,6 +29,8 @@ function _carregarLista()
                 "<td>"+element.Nome+"</td> "+
                 "<td>"+element.Email+"</td> "+
                 "<td>"+element.Telefone+"</td> "+
+                "<td>"+element.Id_Sexo+"</td> "+
+                "<td>"+element.Id_Escolaridade+"</td> "+
                 "<td><button onclick=\"Remover('"+element.Id+"');\" type=\"submit\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\">Remover</button><button onclick=\"Editar('"+element.Id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
                 "</tr>");
             }); 
@@ -111,27 +103,27 @@ function _retornaPorId(id)
         dataType: 'json',
         }).then(function(data){
             console.log(JSON.stringify(data));
-            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"";   
+            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"&Id_Sexo="+data.Id_Sexo+"&Id_Escolaridade="+data.Id_Escolaridade+"";   
             $(location).attr('href', 'Cadastro.html?'+queryString);
         });
 }
 
-//Requisição ajax exemplo
-$(function(){
-    $("#efetuarRequisicao").click(function(){
-        $("#loader").show().delay(10000);        
-        var root = 'http://localhost:65286/api/';
-        $.ajax({
-            url: root + 'values',
-            method: 'GET',
-            data: {},
-            contentType: "application/json,charset=utf-8",
-            dataType: 'json'
-          }).then(function(data) {
-            console.log(JSON.stringify(data));
-            $("#dadosRequisicao").append(JSON.stringify(data));
-            $("#loader").hide();
-          });
-    });  
+// //Requisição ajax exemplo
+// $(function(){
+//     $("#efetuarRequisicao").click(function(){
+//         $("#loader").show().delay(10000);        
+//         var root = 'http://localhost:65286/api/';
+//         $.ajax({
+//             url: root + 'values',
+//             method: 'GET',
+//             data: {},
+//             contentType: "application/json,charset=utf-8",
+//             dataType: 'json'
+//           }).then(function(data) {
+//             console.log(JSON.stringify(data));
+//             $("#dadosRequisicao").append(JSON.stringify(data));
+//             $("#loader").hide();
+//           });
+//     });  
        
-});
+// });

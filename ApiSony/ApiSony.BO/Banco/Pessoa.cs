@@ -16,5 +16,12 @@ namespace ApiSony.BO.Banco
 
         [StringLength(100)]
         public string Email { get; set; }
+
+        [StringLength(11)]
+        public string Telefone { get; set; }
+
+        public int Id_Escolaridade { get; set; }
+
+        public int Id_Sexo { get; set; }
     }
 }

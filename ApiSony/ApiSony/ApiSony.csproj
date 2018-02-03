@@ -260,6 +260,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApiSony.BO\ApiSony.BO.csproj">
+      <Project>{3b72c12e-f31a-40ef-8134-0873a94c2ca1}</Project>
+      <Name>ApiSony.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApiSonyNegocio\ApiSonyNegocio.csproj">
+      <Project>{f1232ac1-c8b7-445c-a082-4be12c32e640}</Project>
+      <Name>ApiSonyNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
