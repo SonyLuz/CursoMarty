@@ -1,6 +1,7 @@
 ﻿using ApiSony.BO.Banco;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,7 +91,7 @@ namespace ApiSonyNegocio.NegocioPessoa
             {
                 using (var context = new ApiSonyEntity())
                 {
-                    var newPessoa = GetPessoaId(id);
+                    Pessoa newPessoa = GetPessoaId(id);
                     if (newPessoa != null)
                     {
                         newPessoa.Id = id;
@@ -99,7 +100,7 @@ namespace ApiSonyNegocio.NegocioPessoa
                         newPessoa.Telefone = pessoa.Telefone;
                         newPessoa.Id_Sexo = pessoa.Id_Sexo;
                         newPessoa.Id_Escolaridade = pessoa.Id_Escolaridade;
-                        
+                        context.Entry(newPessoa).State = EntityState.Modified;
                         context.SaveChanges();
 
                         return true;
@@ -142,6 +143,22 @@ namespace ApiSonyNegocio.NegocioPessoa
             catch(Exception ex)
             {
                 return false;
+            }
+        }
+
+        public static string RetornaEscolaridade(string id)
+        {
+            using (var context = new ApiSonyEntity())
+            {
+                return context.Escolaridade.Where(e => e.Id_Escolaridade.ToString() == id).FirstOrDefault().Nivel;
+            }
+        }
+
+        public static string RetornaSexo(string id)
+        {
+            using (var context = new ApiSonyEntity())
+            {
+                return context.Sexo.Where(s => s.Id_Sexo.ToString() == id).FirstOrDefault().TipoSexo;
             }
         }
     }

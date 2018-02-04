@@ -103,7 +103,7 @@ function _retornaPorId(id)
         dataType: 'json',
         }).then(function(data){
             console.log(JSON.stringify(data));
-            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"&Id_Sexo="+data.Id_Sexo+"&Id_Escolaridade="+data.Id_Escolaridade+"";   
+            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"&sexo="+data.Id_Sexo+"&escolaridade="+data.Id_Escolaridade+"";   
             $(location).attr('href', 'Cadastro.html?'+queryString);
         });
 }

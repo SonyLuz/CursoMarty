@@ -11,7 +11,7 @@ namespace ApiSony.BO.Banco
     {
         public Guid Id { get; set; }
 
-        [StringLength(200)]
+        [StringLength(100)]
         public string Nome { get; set; }
 
         [StringLength(100)]
@@ -20,8 +20,10 @@ namespace ApiSony.BO.Banco
         [StringLength(11)]
         public string Telefone { get; set; }
 
-        public int Id_Escolaridade { get; set; }
+        [StringLength(60)]
+        public string Id_Escolaridade { get; set; }
 
-        public int Id_Sexo { get; set; }
+        [StringLength(10)]
+        public string Id_Sexo { get; set; }
     }
 }

@@ -85,6 +85,14 @@
     <Compile Include="Migrations\201802031540323_AddCampoTelefone.Designer.cs">
       <DependentUpon>201802031540323_AddCampoTelefone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802040229595_alterescolaridadesexo.cs" />
+    <Compile Include="Migrations\201802040229595_alterescolaridadesexo.Designer.cs">
+      <DependentUpon>201802040229595_alterescolaridadesexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802040231254_alterescolaridadesexoadd.cs" />
+    <Compile Include="Migrations\201802040231254_alterescolaridadesexoadd.Designer.cs">
+      <DependentUpon>201802040231254_alterescolaridadesexoadd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802031540323_AddCampoTelefone.resx">
       <DependentUpon>201802031540323_AddCampoTelefone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802040229595_alterescolaridadesexo.resx">
+      <DependentUpon>201802040229595_alterescolaridadesexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802040231254_alterescolaridadesexoadd.resx">
+      <DependentUpon>201802040231254_alterescolaridadesexoadd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

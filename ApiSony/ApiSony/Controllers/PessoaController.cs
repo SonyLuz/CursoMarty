@@ -39,7 +39,14 @@ namespace ApiSony.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, PessoaNegocio.ListarPessoa());
+                List<Pessoa> listaPessoa = new List<Pessoa>();
+                foreach(var l in PessoaNegocio.ListarPessoa())
+                {
+                    l.Id_Escolaridade = PessoaNegocio.RetornaEscolaridade(l.Id_Escolaridade);
+                    l.Id_Sexo = PessoaNegocio.RetornaSexo(l.Id_Sexo);
+                    listaPessoa.Add(l);
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, listaPessoa);
             }
             catch (Exception ex)
             {
