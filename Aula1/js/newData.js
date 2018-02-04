@@ -31,10 +31,11 @@ _carregarLista()
                 "<td>"+element.Telefone+"</td> "+
                 "<td>"+element.Id_Sexo+"</td> "+
                 "<td>"+element.Id_Escolaridade+"</td> "+
-                "<td><button onclick=\"Remover('"+element.Id+"');\" type=\"submit\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\">Remover</button><button onclick=\"Editar('"+element.Id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
+                "<td><button type=\"submit\" onclick=\"CarregaBotaoModal('"+element.Id+"');\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\" data-toggle=\"modal\" data-target=\"#myModal\">Remover</button><button onclick=\"Editar('"+element.Id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
                 "</tr>");
             }); 
         } 
+        
         $("#loader").hide();
     });
 }
@@ -70,6 +71,7 @@ function _removerPessoas(idPessoa)
         dataType: 'json',
         success: function(result){
             toastr.success(result);
+            LimpaBotaoModal();
             CarregarLista();                            
         },
         error: function(erro){
