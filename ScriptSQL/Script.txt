@@ -1,0 +1,33 @@
+--Create Database
+CREATE DATABASE Demo;
+
+USE Demo
+
+--Creates Table
+CREATE TABLE Pessoa(
+	Id UNIQUEIDENTIFIER PRIMARY KEY,
+	Nome VARCHAR(100),
+	Email VARCHAR(80),
+	Telefone VARCHAR(11),
+	Id_Escolaridade VARCHAR(1),
+	Id_Sexo VARCHAR(1)
+);
+
+CREATE TABLE Escolaridade(
+	Id_Escolaridade INT PRIMARY KEY,
+	Nivel VARCHAR(60)
+);
+
+CREATE TABLE Sexo(
+	Id_Sexo INT PRIMARY KEY,
+	TipoSexo VARCHAR(10)
+);
+
+
+--Inserts
+INSERT INTO dbo.Sexo(TipoSexo)VALUES('Mano')
+INSERT INTO dbo.Sexo(TipoSexo)VALUES('Mina')
+
+INSERT INTO dbo.Escolaridade(Nivel)VALUES('Ensino Medio Completo')
+INSERT INTO dbo.Escolaridade(Nivel)VALUES('Tecnologo Completo')
+INSERT INTO dbo.Escolaridade(Nivel)VALUES('Superior Completo')
