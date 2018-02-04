@@ -11,6 +11,7 @@ $(document).ready(function(){
             $("#txtNome").val(result.nome);
             $("#txtEmail").val(result.email);
             $("#txtTelefone").val(result.telefone);
+            
             if(result.sexo == "1")
                 $("#mano").prop("checked", true);
             else
@@ -34,7 +35,7 @@ $(function(){
             ClearCadastro();
         }
         else{
-            alert("Dados sem preencher brow!")
+            toastr.error("Dados sem preencher brow!");//alert("Dados sem preencher brow!")
         }
     });
 });
@@ -54,7 +55,7 @@ $(function(){
             ClearCadastro();                   
         }
         else{
-            alert("Dados sem preencher brow!")
+            toastr.error("Dados sem preencher brow!");//alert("Dados sem preencher brow!");
         }
     });
 });

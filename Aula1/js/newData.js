@@ -49,11 +49,14 @@ function _inserirPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-            alert(foi); 
-            $(location).attr('href', 'Lista.html');                          
+            toastr.success(foi);
+            // da uma segurada pra aparecer o toast
+            setTimeout(function(){
+                $(location).attr('href', 'Lista.html'); 
+            }, 2400);
         },
         error: function(erro){
-            alert(erro);            
+           toastr.error(erro);       
         }
     });   
 }
@@ -66,11 +69,11 @@ function _removerPessoas(idPessoa)
         method: 'Delete',
         dataType: 'json',
         success: function(result){
-            alert(result); 
+            toastr.success(result);
             CarregarLista();                            
         },
         error: function(erro){
-            alert(erro);            
+            toastr.error(erro);        
         }
       }); 
 }
@@ -85,11 +88,14 @@ function _alterarPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-            alert(foi); 
-            $(location).attr('href', 'Lista.html');  ;                          
+            toastr.success(foi);
+            // da uma segurada pra aparecer o toast            
+            setTimeout(function(){
+                $(location).attr('href', 'Lista.html');                                      
+            }, 2400);
         },
         error: function(erro){
-            alert(erro);            
+            toastr.error(erro);        
         }
     });
 }
