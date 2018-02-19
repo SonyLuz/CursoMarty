@@ -31,7 +31,19 @@ $(function(){
             Id_Sexo: $('input[name=rdSexo]:checked').val(),
             Id_Escolaridade: $("#combEscolaridade").val()};
 
-            servicePessoa.inserirPessoas(newPessoa);
+            var result = servicePessoa.inserirPessoas(newPessoa);
+            if(result)
+            {
+                toastr.success(foi);
+                // da uma segurada pra aparecer o toast
+                setTimeout(function(){
+                    $(location).attr('href', 'Lista.html'); 
+                }, 2400);
+            }
+            else
+            {
+                toastr.error(erro); 
+            }
             ClearCadastro();
         }
         else{
@@ -51,7 +63,18 @@ $(function(){
             Id_Escolaridade: $("#combEscolaridade").val()
             };
 
-            servicePessoa.alterarPessoas(newPessoa);   
+            var result = servicePessoa.alterarPessoas(newPessoa);  
+            if(result)
+            {
+                toastr.success(foi);
+                // da uma segurada pra aparecer o toast            
+                setTimeout(function(){
+                    $(location).attr('href', 'Lista.html');                                      
+                }, 2400);
+            }
+            else{
+                toastr.error(erro); 
+            }
             ClearCadastro();                   
         }
         else{

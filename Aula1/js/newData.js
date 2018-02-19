@@ -19,24 +19,8 @@ _carregarLista()
         data: {},
         dataType: 'json'
         }).then(function(data) {
-        itemReturn = data;
-        if(itemReturn != null)
-        {
-            $("#tabelaLista").html("");
-            itemReturn.forEach(element => {
-                $("#tabelaLista").append("<tr> "+
-                "<td>"+element.Id+"</td> "+
-                "<td>"+element.Nome+"</td> "+
-                "<td>"+element.Email+"</td> "+
-                "<td>"+element.Telefone+"</td> "+
-                "<td>"+element.Id_Sexo+"</td> "+
-                "<td>"+element.Id_Escolaridade+"</td> "+
-                "<td><button type=\"submit\" onclick=\"CarregaBotaoModal('"+element.Id+"');\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\" data-toggle=\"modal\" data-target=\"#myModal\">Remover</button><button onclick=\"Editar('"+element.Id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
-                "</tr>");
-            }); 
-        } 
-        
-        $("#loader").hide();
+            return data;        
+            $("#loader").hide();
     });
 }
 
@@ -50,14 +34,10 @@ function _inserirPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-            toastr.success(foi);
-            // da uma segurada pra aparecer o toast
-            setTimeout(function(){
-                $(location).attr('href', 'Lista.html'); 
-            }, 2400);
+            return foi;
         },
         error: function(erro){
-           toastr.error(erro);       
+           return erro;      
         }
     });   
 }
@@ -70,12 +50,10 @@ function _removerPessoas(idPessoa)
         method: 'Delete',
         dataType: 'json',
         success: function(result){
-            toastr.success(result);
-            LimpaBotaoModal();
-            CarregarLista();                            
+           return result;                            
         },
         error: function(erro){
-            toastr.error(erro);        
+            return erro;      
         }
       }); 
 }
@@ -90,14 +68,10 @@ function _alterarPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-            toastr.success(foi);
-            // da uma segurada pra aparecer o toast            
-            setTimeout(function(){
-                $(location).attr('href', 'Lista.html');                                      
-            }, 2400);
+           return foi;
         },
         error: function(erro){
-            toastr.error(erro);        
+            return erro;       
         }
     });
 }
