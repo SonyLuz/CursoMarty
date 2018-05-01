@@ -34,6 +34,7 @@ $(function(){
             && $("#txtComplementoendereco").val() != "" && $("#txtCpf").val() != "" && $("#txtDataNascimento").val() != "" 
             && $("#txtRG").val() != "" && $("#txtCep").val() != ""  && $("#txtEndereco").val() != "")
         {
+<<<<<<< HEAD
             var data1 = $("#txtDataNascimento").val().split('/');
             var newPessoa = {
                 Nome: $("#txtNome").val(), 
@@ -50,6 +51,25 @@ $(function(){
         };
             console.log(newPessoa);
             servicePessoa.inserirPessoas(newPessoa);
+=======
+            var newPessoa = {Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val(),
+            Id_Sexo: $('input[name=rdSexo]:checked').val(),
+            Id_Escolaridade: $("#combEscolaridade").val()};
+
+            var result = servicePessoa.inserirPessoas(newPessoa);
+            if(result)
+            {
+                toastr.success(foi);
+                // da uma segurada pra aparecer o toast
+                setTimeout(function(){
+                    $(location).attr('href', 'Lista.html'); 
+                }, 2400);
+            }
+            else
+            {
+                toastr.error(erro); 
+            }
+>>>>>>> be9cfd4567f4b06959a8d14bda16516fb3ae5c13
             ClearCadastro();
         }
         else{
@@ -81,7 +101,18 @@ $(function(){
                 Complemento_Endereco: $("#txtComplementoEndereco").val()
             };
 
-            servicePessoa.alterarPessoas(newPessoa);   
+            var result = servicePessoa.alterarPessoas(newPessoa);  
+            if(result)
+            {
+                toastr.success(foi);
+                // da uma segurada pra aparecer o toast            
+                setTimeout(function(){
+                    $(location).attr('href', 'Lista.html');                                      
+                }, 2400);
+            }
+            else{
+                toastr.error(erro); 
+            }
             ClearCadastro();                   
         }
         else{

@@ -19,6 +19,7 @@ _carregarLista()
         data: {},
         dataType: 'json'
         }).then(function(data) {
+<<<<<<< HEAD
         itemReturn = data;
         if(itemReturn != null)
         {
@@ -43,6 +44,10 @@ _carregarLista()
         } 
         
         $("#loader").hide();
+=======
+            return data;        
+            $("#loader").hide();
+>>>>>>> be9cfd4567f4b06959a8d14bda16516fb3ae5c13
     });
 }
 
@@ -56,14 +61,10 @@ function _inserirPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-            toastr.success(foi);
-            // da uma segurada pra aparecer o toast
-            setTimeout(function(){
-                $(location).attr('href', 'Lista.html'); 
-            }, 2400);
+            return foi;
         },
         error: function(erro){
-           toastr.error(erro);       
+           return erro;      
         }
     });   
 }
@@ -76,12 +77,10 @@ function _removerPessoas(idPessoa)
         method: 'Delete',
         dataType: 'json',
         success: function(result){
-            toastr.success(result);
-            LimpaBotaoModal();
-            CarregarLista();                            
+           return result;                            
         },
         error: function(erro){
-            toastr.error(erro);        
+            return erro;      
         }
       }); 
 }
@@ -96,14 +95,10 @@ function _alterarPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-            toastr.success(foi);
-            // da uma segurada pra aparecer o toast            
-            setTimeout(function(){
-                $(location).attr('href', 'Lista.html');                                      
-            }, 2400);
+           return foi;
         },
         error: function(erro){
-            toastr.error(erro);        
+            return erro;       
         }
     });
 }
