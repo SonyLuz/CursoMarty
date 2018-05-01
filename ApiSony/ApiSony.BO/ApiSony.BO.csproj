@@ -93,6 +93,14 @@
     <Compile Include="Migrations\201802040231254_alterescolaridadesexoadd.Designer.cs">
       <DependentUpon>201802040231254_alterescolaridadesexoadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804302241187_AlteracaoPessoa.cs" />
+    <Compile Include="Migrations\201804302241187_AlteracaoPessoa.Designer.cs">
+      <DependentUpon>201804302241187_AlteracaoPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805010008129_AlterCep.cs" />
+    <Compile Include="Migrations\201805010008129_AlterCep.Designer.cs">
+      <DependentUpon>201805010008129_AlterCep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -126,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802040231254_alterescolaridadesexoadd.resx">
       <DependentUpon>201802040231254_alterescolaridadesexoadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804302241187_AlteracaoPessoa.resx">
+      <DependentUpon>201804302241187_AlteracaoPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010008129_AlterCep.resx">
+      <DependentUpon>201805010008129_AlterCep.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

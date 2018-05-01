@@ -1,3 +1,5 @@
+D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\obj\Debug\ApiSonyNegocio.csprojResolveAssemblyReference.cache
+D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\obj\Debug\ApiSonyNegocio.csproj.CoreCompileInputs.cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\bin\Debug\ApiSonyNegocio.dll.config
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\bin\Debug\ApiSonyNegocio.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\bin\Debug\ApiSonyNegocio.pdb
@@ -8,7 +10,5 @@ D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\bin\Debug\ApiSony.BO.pdb
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\bin\Debug\ApiSony.BO.dll.config
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\bin\Debug\EntityFramework.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\bin\Debug\EntityFramework.SqlServer.xml
-D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\obj\Debug\ApiSonyNegocio.csprojResolveAssemblyReference.cache
-D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\obj\Debug\ApiSonyNegocio.csproj.CoreCompileInputs.cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\obj\Debug\ApiSonyNegocio.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSonyNegocio\obj\Debug\ApiSonyNegocio.pdb

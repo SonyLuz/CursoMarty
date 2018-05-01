@@ -10,7 +10,13 @@ CREATE TABLE Pessoa(
 	Email VARCHAR(80),
 	Telefone VARCHAR(11),
 	Id_Escolaridade VARCHAR(1),
-	Id_Sexo VARCHAR(1)
+	Id_Sexo VARCHAR(1),
+	Cpf VARCHAR(11),
+	Cep VARCHAR(8),
+	Data_Nascimento date,
+	Rg VARCHAR(8),
+	Endereco VARCHAR(100),
+	Complemento_Endereco VARCHAR(10)
 );
 
 CREATE TABLE Escolaridade(

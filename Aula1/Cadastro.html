@@ -10,6 +10,8 @@
     <script src="js/newData.js"></script>
     <script src="js/toastr.js"></script>
     <script src="js/toastr.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <link rel="stylesheet" href="css/toastr.css" />
     <link rel="stylesheet" href="css/toastr.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -76,6 +78,30 @@
                     <option value="2">Tecnologo Completo</option>
                     <option value="3">Superior Completo</option>
             </select>
+        </div>
+        <div class="col-md-12" style="padding-top:10px;">
+            <label>CPF: </label>
+            <input class="form-control" type="text" id="txtCpf">
+        </div> 
+        <div class="col-md-12" style="padding-top:10px;">
+            <label>Data Nacimento: </label>
+            <input class="form-control" type="text" id="txtDataNascimento">
+        </div> 
+        <div class="col-md-12" style="padding-top:10px;">
+            <label>RG: </label>
+            <input class="form-control" type="text" id="txtRg">
+        </div>
+        <div class="col-md-12" style="padding-top:10px;">
+            <label>CEP: </label>
+            <input class="form-control" type="text" id="txtCep">
+        </div>
+        <div class="col-md-12" style="padding-top:10px;">
+            <label>Endereço: </label>
+            <input class="form-control" type="text" id="txtEndereco">
+        </div>
+        <div class="col-md-12" style="padding-top:10px;">
+            <label>Complemento Endereço: </label>
+            <input class="form-control" type="text" id="txtComplementoEndereco">
         </div>                
     </div>        
     <div class="col-md-12" style="padding:25px;">
@@ -92,3 +118,13 @@
 </body>
 
 </html>
+
+<SCRIPT language="javascript">
+    $(document).ready(function () {
+        $('#txtDataNascimento').mask('99/99/9999');
+        $('#txtTelefone').mask('(99)9999-9999');
+        $('#txtCep').mask('99999-999');
+        $('#txtCpf').mask('999.999.999-99');
+       return false;
+   });
+</SCRIPT>

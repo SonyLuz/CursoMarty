@@ -1,10 +1,8 @@
 namespace ApiSony.BO.Banco
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Pessoa")]
     public partial class Pessoa
@@ -25,5 +23,22 @@ namespace ApiSony.BO.Banco
 
         [StringLength(10)]
         public string Id_Sexo { get; set; }
+
+        [StringLength(11)]
+        public string Cpf { get; set; }
+
+        [StringLength(8)]
+        public string Cep { get; set; }
+
+        public DateTime Data_Nascimento { get; set; }
+
+        [StringLength(8)]
+        public string Rg { get; set; }
+
+        [StringLength(100)]
+        public string Endereco { get; set; }
+
+        [StringLength(10)]
+        public string Complemento_Endereco { get; set; }
     }
 }

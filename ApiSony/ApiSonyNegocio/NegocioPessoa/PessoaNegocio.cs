@@ -54,7 +54,7 @@ namespace ApiSonyNegocio.NegocioPessoa
         /// </summary>
         /// <param name="pessoa"></param>
         /// <returns></returns>
-        public static bool AddPessoa(Pessoa pessoa)
+        public static bool AddPessoa(Pessoa pessoa, out string msg)
         {
             try
             {
@@ -62,19 +62,29 @@ namespace ApiSonyNegocio.NegocioPessoa
                 {
                     if (pessoa != null)
                     {
+                        bool validaCPF = BuscaCPF(pessoa.Cpf);
+                        if(validaCPF)
+                        {
+                            msg = "CPF já Cadastrado!!!";
+                            return false;
+                        }
+                            
                         pessoa.Id = Guid.NewGuid();
                         context.Pessoa.Add(pessoa);
                         context.SaveChanges();
+                        msg = "Cadastrado com sucesso!! Aew cuzão!";
                         return true;
                     }
                     else
                     {
+                        msg = "Deu ruim cuzão! Chama o Marty!!";
                         return false;
                     }
                 }                    
             }
             catch (Exception ex)
             {
+                msg = ex.Message + "Ligue pro Marty!!!";
                 return false;
             }
         }
@@ -100,6 +110,13 @@ namespace ApiSonyNegocio.NegocioPessoa
                         newPessoa.Telefone = pessoa.Telefone;
                         newPessoa.Id_Sexo = pessoa.Id_Sexo;
                         newPessoa.Id_Escolaridade = pessoa.Id_Escolaridade;
+                        newPessoa.Cep = pessoa.Cep;
+                        newPessoa.Endereco = pessoa.Endereco;
+                        newPessoa.Data_Nascimento = pessoa.Data_Nascimento;
+                        newPessoa.Cpf = pessoa.Cpf;
+                        newPessoa.Complemento_Endereco = pessoa.Complemento_Endereco;
+                        newPessoa.Rg = pessoa.Rg;
+
                         context.Entry(newPessoa).State = EntityState.Modified;
                         context.SaveChanges();
 
@@ -159,6 +176,25 @@ namespace ApiSonyNegocio.NegocioPessoa
             using (var context = new ApiSonyEntity())
             {
                 return context.Sexo.Where(s => s.Id_Sexo.ToString() == id).FirstOrDefault().TipoSexo;
+            }
+        }
+
+        public static bool BuscaCPF(string cpf)
+        {
+            try
+            {
+                using (var context = new ApiSonyEntity())
+                {
+                    var pessoa = context.Pessoa.Where(p => p.Cpf.Equals(cpf)).FirstOrDefault();
+                    if (pessoa != null)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

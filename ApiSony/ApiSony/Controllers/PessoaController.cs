@@ -7,6 +7,7 @@ using System.Web.Http;
 using Newtonsoft.Json;
 using ApiSony.BO.Banco;
 using ApiSonyNegocio.NegocioPessoa;
+using System.Text.RegularExpressions;
 
 namespace ApiSony.Controllers
 {
@@ -44,6 +45,8 @@ namespace ApiSony.Controllers
                 {
                     l.Id_Escolaridade = PessoaNegocio.RetornaEscolaridade(l.Id_Escolaridade);
                     l.Id_Sexo = PessoaNegocio.RetornaSexo(l.Id_Sexo);
+                    string dataN = l.Data_Nascimento.ToString("dd/MM/yyyy");
+                    l.Data_Nascimento = DateTime.Parse(dataN);
                     listaPessoa.Add(l);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, listaPessoa);
@@ -77,11 +80,15 @@ namespace ApiSony.Controllers
         {
             try
             {
-                bool result = PessoaNegocio.AddPessoa(value);
+                string msg = string.Empty;
+                value.Cep = Regex.Replace(value.Cep,"-", "");
+                value.Cpf = Regex.Replace(value.Cpf,@"-|\.", "");
+                value.Telefone = Regex.Replace(value.Telefone,@"\(|\)|-", "");
+                bool result = PessoaNegocio.AddPessoa(value, out msg);
                 if (result)
-                    return Request.CreateResponse(HttpStatusCode.OK, "Cadastrado com sucesso!! Aew cuzão!");
+                    return Request.CreateResponse(HttpStatusCode.OK, msg);
                 else
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError, "Deu ruim cuzão! Chama o Marty!!");
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, msg);
 
             }
             catch (Exception ex)

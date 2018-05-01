@@ -11,6 +11,11 @@ $(document).ready(function(){
             $("#txtNome").val(result.nome);
             $("#txtEmail").val(result.email);
             $("#txtTelefone").val(result.telefone);
+            $("#txtCep").val(result.cep);
+            $("#txtRG").val(result.rg);
+            $("#txtDataNascimento").val(result.dataNascimento);
+            $("#txtCpf").val(result.cpf);
+            $("#txtComplementoEndereco").val(result.complementoEndereco);
             
             if(result.sexo == "1")
                 $("#mano").prop("checked", true);
@@ -25,12 +30,25 @@ $(document).ready(function(){
 $(function(){
     $("#btn3").click(function(){
         //console.log("sexo "+ $('input[name=rdSexo]:checked').val());
-        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $('input[name=rdSexo]:checked').val() != "" &&  $("#combEscolaridade").val() != "")
+        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $('input[name=rdSexo]:checked').val() != "" &&  $("#combEscolaridade").val() != ""
+            && $("#txtComplementoendereco").val() != "" && $("#txtCpf").val() != "" && $("#txtDataNascimento").val() != "" 
+            && $("#txtRG").val() != "" && $("#txtCep").val() != ""  && $("#txtEndereco").val() != "")
         {
-            var newPessoa = {Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val(),
-            Id_Sexo: $('input[name=rdSexo]:checked').val(),
-            Id_Escolaridade: $("#combEscolaridade").val()};
-
+            var data1 = $("#txtDataNascimento").val().split('/');
+            var newPessoa = {
+                Nome: $("#txtNome").val(), 
+                Email: $("#txtEmail").val(), 
+                Telefone: $("#txtTelefone").val(),
+                Id_Sexo: $('input[name=rdSexo]:checked').val(),
+                Id_Escolaridade: $("#combEscolaridade").val(),
+                Cep: $("#txtCep").val(),
+                Endereco: $("#txtEndereco").val(),
+                Rg: $("#txtRg").val(),
+                Data_Nascimento: new Date(data1[2] +"-"+ data1[1] +"-"+ data1[0]),
+                Cpf: $("#txtCpf").val(),
+                Complemento_Endereco: $("#txtComplementoEndereco").val()
+        };
+            console.log(newPessoa);
             servicePessoa.inserirPessoas(newPessoa);
             ClearCadastro();
         }
@@ -44,11 +62,23 @@ $(function(){
 $(function(){
     $("#btn4").click(function(){
         //console.log("sexo "+ $('input[name=rdSexo]:checked').val());
-        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $('input[name=rdSexo]:checked').val() != "" &&  $("#combEscolaridade").val() != "")
+        if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $('input[name=rdSexo]:checked').val() != "" &&  $("#combEscolaridade").val() != ""
+            && $("#txtComplementoendereco").val() != "" && $("#txtCpf").val() != "" && $("#txtDataNascimento").val() != "" 
+            && $("#txtRG").val() != "" && $("#txtCep").val() != "" && $("#txtEndereco").val() != "")
         {
-            var newPessoa = {Id: result.id, Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val(),
-            Id_Sexo: $('input[name=rdSexo]:checked').val(),
-            Id_Escolaridade: $("#combEscolaridade").val()
+            var newPessoa = {
+                Id: result.id, 
+                Nome: $("#txtNome").val(), 
+                Email: $("#txtEmail").val(), 
+                Telefone: $("#txtTelefone").val(),
+                Id_Sexo: $('input[name=rdSexo]:checked').val(),
+                Id_Escolaridade: $("#combEscolaridade").val(),
+                Cep: $("#txtCep").val(),
+                Endereco: $("#txtEndereco").val(),
+                Rg: $("#txtRg").val(),
+                Data_Nascimento: $("#txtDataNascimento").val(),
+                Cpf: $("#txtCpf").val(),
+                Complemento_Endereco: $("#txtComplementoEndereco").val()
             };
 
             servicePessoa.alterarPessoas(newPessoa);   
@@ -68,4 +98,10 @@ function ClearCadastro()
     $("#txtTelefone").val("");
     $('input[name=rdSexo]:checked').val("");
     $("#combEscolaridade").val("");
+    $("#txtCep").val("");
+    $("#txtEndereco").val("");
+    $("#txtRg").val("");
+    $("#txtDataNascimento").val("");
+    $("#txtCpf").val("");
+    $("#txtComplementoEndereco").val("");
 }

@@ -31,6 +31,12 @@ _carregarLista()
                 "<td>"+element.Telefone+"</td> "+
                 "<td>"+element.Id_Sexo+"</td> "+
                 "<td>"+element.Id_Escolaridade+"</td> "+
+                "<td>"+element.Rg+"</td> "+
+                "<td>"+element.Cpf+"</td> "+
+                "<td>"+element.Data_Nascimento+"</td> "+
+                "<td>"+element.Cep+"</td> "+
+                "<td>"+element.Endereco+"</td> "+
+                "<td>"+element.Complemento_Endereco+"</td> "+
                 "<td><button type=\"submit\" onclick=\"CarregaBotaoModal('"+element.Id+"');\" class=\"btn btn-danger btn-sm\" style=\"margin-right:5px;\" data-toggle=\"modal\" data-target=\"#myModal\">Remover</button><button onclick=\"Editar('"+element.Id+"');\" type=\"submit\" class=\"btn btn-primary btn-sm\">Editar</button></td>"+
                 "</tr>");
             }); 
@@ -111,7 +117,7 @@ function _retornaPorId(id)
         dataType: 'json',
         }).then(function(data){
             console.log(JSON.stringify(data));
-            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"&sexo="+data.Id_Sexo+"&escolaridade="+data.Id_Escolaridade+"";   
+            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"&sexo="+data.Id_Sexo+"&escolaridade="+data.Id_Escolaridade+"&cep="+data.Cep+"&endereco="+data.Endereco+"&cpf="+data.Cpf+"&nascimento="+data.Data_Nascimento+"&rg="+data.Rg+"&complemento="+Complemento_Endereco+"";   
             $(location).attr('href', 'Cadastro.html?'+queryString);
         });
 }
