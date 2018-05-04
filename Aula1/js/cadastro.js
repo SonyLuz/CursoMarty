@@ -11,11 +11,6 @@ $(document).ready(function(){
             $("#txtNome").val(result.nome);
             $("#txtEmail").val(result.email);
             $("#txtTelefone").val(result.telefone);
-            $("#txtCep").val(result.cep);
-            $("#txtRG").val(result.rg);
-            $("#txtDataNascimento").val(result.dataNascimento);
-            $("#txtCpf").val(result.cpf);
-            $("#txtComplementoEndereco").val(result.complementoEndereco);
             
             if(result.sexo == "1")
                 $("#mano").prop("checked", true);
@@ -23,97 +18,91 @@ $(document).ready(function(){
                 $("#mina").prop("checked", true);
                 
             $("#combEscolaridade").val(result.escolaridade);
+        
+            var cpf = result.cpf;
+            if(cpf != null && cpf != "")
+            {
+                if(cpf.length < 11)
+                {
+                     cpf = "0" + cpf;
+                }
+            }
+            
+            $("#txtCpf").val(cpf);
+
+            $("#txtCep").val(result.cep);
+            $("#txtEndereco").val(result.endereco);
+            $("#txtRg").val(result.rg);
+            if(result.nascimento != null && result.nascimento != "")
+            {
+                var data1 = result.nascimento.split('-');      
+                $("#txtDataNascimento").val(data1[2].replace("T00:00:00", "")+data1[1]+data1[0]);       
+            }
+            $("#txtComplementoEndereco").val(result.complemento);
         }        
 })
 
 //Cadastrar Json
-$(function(){
-    $("#btn3").click(function(){
+function Cadastrar(){
         //console.log("sexo "+ $('input[name=rdSexo]:checked').val());
         if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $('input[name=rdSexo]:checked').val() != "" &&  $("#combEscolaridade").val() != ""
-            && $("#txtComplementoendereco").val() != "" && $("#txtCpf").val() != "" && $("#txtDataNascimento").val() != "" 
+            && $("#txtComplementoEndereco").val() != "" && $("#txtCpf").val() != "" && $("#txtDataNascimento").val() != "" 
             && $("#txtRG").val() != "" && $("#txtCep").val() != ""  && $("#txtEndereco").val() != "")
         {
-<<<<<<< HEAD
             var data1 = $("#txtDataNascimento").val().split('/');
+            var cep = $("#txtCep").val().replace('-','');
+            var cpf = $("#txtCpf").val().replace('-','').replace('.','').replace('.','');
+            var telefone = $("#txtTelefone").val().replace('(','').replace(')','').replace('-','');
             var newPessoa = {
-                Nome: $("#txtNome").val(), 
+                Nome: $("#txtNome").val(),
                 Email: $("#txtEmail").val(), 
-                Telefone: $("#txtTelefone").val(),
+                Telefone: telefone,
                 Id_Sexo: $('input[name=rdSexo]:checked').val(),
                 Id_Escolaridade: $("#combEscolaridade").val(),
-                Cep: $("#txtCep").val(),
+                Cep: parseFloat(cep, 10),
                 Endereco: $("#txtEndereco").val(),
-                Rg: $("#txtRg").val(),
+                Rg: parseInt($("#txtRg").val()),
                 Data_Nascimento: new Date(data1[2] +"-"+ data1[1] +"-"+ data1[0]),
-                Cpf: $("#txtCpf").val(),
+                Cpf:parseFloat(cpf,10),
                 Complemento_Endereco: $("#txtComplementoEndereco").val()
         };
-            console.log(newPessoa);
-            servicePessoa.inserirPessoas(newPessoa);
-=======
-            var newPessoa = {Nome: $("#txtNome").val(), Email: $("#txtEmail").val(), Telefone: $("#txtTelefone").val(),
-            Id_Sexo: $('input[name=rdSexo]:checked').val(),
-            Id_Escolaridade: $("#combEscolaridade").val()};
-
-            var result = servicePessoa.inserirPessoas(newPessoa);
-            if(result)
-            {
-                toastr.success(foi);
-                // da uma segurada pra aparecer o toast
-                setTimeout(function(){
-                    $(location).attr('href', 'Lista.html'); 
-                }, 2400);
-            }
-            else
-            {
-                toastr.error(erro); 
-            }
->>>>>>> be9cfd4567f4b06959a8d14bda16516fb3ae5c13
-            ClearCadastro();
+            //console.log(newPessoa);
+            servicePessoa.inserirPessoas(newPessoa);      
         }
-        else{
+        else
+        {
             toastr.error("Dados sem preencher brow!");//alert("Dados sem preencher brow!")
         }
-    });
-});
+}
 
 //Atualizar
 $(function(){
     $("#btn4").click(function(){
         //console.log("sexo "+ $('input[name=rdSexo]:checked').val());
         if($("#txtNome").val() != "" && $("#txtEmail").val() != "" &&  $("#txtTelefone").val() && $('input[name=rdSexo]:checked').val() != "" &&  $("#combEscolaridade").val() != ""
-            && $("#txtComplementoendereco").val() != "" && $("#txtCpf").val() != "" && $("#txtDataNascimento").val() != "" 
-            && $("#txtRG").val() != "" && $("#txtCep").val() != "" && $("#txtEndereco").val() != "")
+            && $("#txtComplementoEndereco").val() != "" && $("#txtCpf").val() != "" && $("#txtDataNascimento").val() != "" 
+            && $("#txtRg").val() != "" && $("#txtCep").val() != "" && $("#txtEndereco").val() != "")
         {
+            var data1 = $("#txtDataNascimento").val().split('/');
+            var cep = $("#txtCep").val().replace('-','');
+            var cpf = $("#txtCpf").val().replace('-','').replace('.','').replace('.','');
+            var telefone = $("#txtTelefone").val().replace('(','').replace(')','').replace('-','');
             var newPessoa = {
                 Id: result.id, 
                 Nome: $("#txtNome").val(), 
                 Email: $("#txtEmail").val(), 
-                Telefone: $("#txtTelefone").val(),
+                Telefone: telefone,
                 Id_Sexo: $('input[name=rdSexo]:checked').val(),
                 Id_Escolaridade: $("#combEscolaridade").val(),
-                Cep: $("#txtCep").val(),
+                Cep: parseFloat(cep, 10).toFixed(0),
                 Endereco: $("#txtEndereco").val(),
-                Rg: $("#txtRg").val(),
-                Data_Nascimento: $("#txtDataNascimento").val(),
-                Cpf: $("#txtCpf").val(),
+                Rg: parseInt($("#txtRg").val()),
+                Data_Nascimento: new Date(data1[2] +"-"+ data1[1] +"-"+ data1[0]),
+                Cpf:parseFloat(cpf,10).toFixed(0),
                 Complemento_Endereco: $("#txtComplementoEndereco").val()
             };
 
-            var result = servicePessoa.alterarPessoas(newPessoa);  
-            if(result)
-            {
-                toastr.success(foi);
-                // da uma segurada pra aparecer o toast            
-                setTimeout(function(){
-                    $(location).attr('href', 'Lista.html');                                      
-                }, 2400);
-            }
-            else{
-                toastr.error(erro); 
-            }
-            ClearCadastro();                   
+            servicePessoa.alterarPessoas(newPessoa);                  
         }
         else{
             toastr.error("Dados sem preencher brow!");//alert("Dados sem preencher brow!");
@@ -135,4 +124,15 @@ function ClearCadastro()
     $("#txtDataNascimento").val("");
     $("#txtCpf").val("");
     $("#txtComplementoEndereco").val("");
+}
+
+//perde o foco
+function BuscaCep() {
+    //Nova variável "cep" somente com dígitos.
+    var cep = $("#txtCep").val().replace('-','');
+
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
+        servicePessoa.RetornaEndereco(cep);
+    }
 }

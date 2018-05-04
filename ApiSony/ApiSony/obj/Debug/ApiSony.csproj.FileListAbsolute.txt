@@ -1,5 +1,3 @@
-D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.csprojResolveAssemblyReference.cache
-D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.csproj.CoreCompileInputs.cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApplicationInsights.config
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.dll.config
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\ApiSony.dll
@@ -57,5 +55,7 @@ D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.DependencyCollector.xm
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.WindowsServer.xml
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\bin\Microsoft.AI.Web.xml
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.csprojResolveAssemblyReference.cache
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.csproj.CoreCompileInputs.cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony\obj\Debug\ApiSony.pdb

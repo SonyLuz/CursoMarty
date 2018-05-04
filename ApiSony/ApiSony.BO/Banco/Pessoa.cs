@@ -24,16 +24,13 @@ namespace ApiSony.BO.Banco
         [StringLength(10)]
         public string Id_Sexo { get; set; }
 
-        [StringLength(11)]
-        public string Cpf { get; set; }
+        public Decimal Cpf { get; set; }
 
-        [StringLength(8)]
-        public string Cep { get; set; }
+        public Decimal Cep { get; set; }
 
         public DateTime Data_Nascimento { get; set; }
 
-        [StringLength(8)]
-        public string Rg { get; set; }
+        public int Rg { get; set; }
 
         [StringLength(100)]
         public string Endereco { get; set; }

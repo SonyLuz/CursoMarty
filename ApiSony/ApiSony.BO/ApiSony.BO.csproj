@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201805010008129_AlterCep.Designer.cs">
       <DependentUpon>201805010008129_AlterCep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805011716147_Altertipodado.cs" />
+    <Compile Include="Migrations\201805011716147_Altertipodado.Designer.cs">
+      <DependentUpon>201805011716147_Altertipodado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -140,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805010008129_AlterCep.resx">
       <DependentUpon>201805010008129_AlterCep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805011716147_Altertipodado.resx">
+      <DependentUpon>201805011716147_Altertipodado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -81,10 +81,17 @@ namespace ApiSony.Controllers
             try
             {
                 string msg = string.Empty;
-                value.Cep = Regex.Replace(value.Cep,"-", "");
-                value.Cpf = Regex.Replace(value.Cpf,@"-|\.", "");
+
+                string cep = Regex.Replace(value.Cep.ToString(),"-", "");
+                value.Cep = Convert.ToDecimal(cep);
+
+                string cpf = Regex.Replace(value.Cpf.ToString(),@"-|\.", "");
+                value.Cpf = Convert.ToDecimal(cpf);
+
                 value.Telefone = Regex.Replace(value.Telefone,@"\(|\)|-", "");
+
                 bool result = PessoaNegocio.AddPessoa(value, out msg);
+
                 if (result)
                     return Request.CreateResponse(HttpStatusCode.OK, msg);
                 else

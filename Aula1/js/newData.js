@@ -3,14 +3,17 @@ var servicePessoa = {
     alterarPessoas: _alterarPessoas,
     removerPessoas: _removerPessoas,
     retornaPorID: _retornaPorId,
-    CarregarLista: _carregarLista
+    CarregarLista: _carregarLista,
+    ToastSucesso: _toastSucesso,
+    ToastErro: _toastErro,
+    RetornaEndereco: _retornaEndereco
 };
+
 
 var root = 'http://localhost:65286/api/';
 
 //Carregar Lista de pessoas
-function 
-_carregarLista()
+function _carregarLista()
 {
     var itemReturn;
     $.ajax({
@@ -19,12 +22,14 @@ _carregarLista()
         data: {},
         dataType: 'json'
         }).then(function(data) {
-<<<<<<< HEAD
         itemReturn = data;
         if(itemReturn != null)
         {
             $("#tabelaLista").html("");
             itemReturn.forEach(element => {
+                var data1 = element.Data_Nascimento.split('-');      
+                var dataNascimento = (data1[2].replace("T00:00:00", "")+"/"+data1[1]+"/"+data1[0]);       
+                
                 $("#tabelaLista").append("<tr> "+
                 "<td>"+element.Id+"</td> "+
                 "<td>"+element.Nome+"</td> "+
@@ -34,7 +39,7 @@ _carregarLista()
                 "<td>"+element.Id_Escolaridade+"</td> "+
                 "<td>"+element.Rg+"</td> "+
                 "<td>"+element.Cpf+"</td> "+
-                "<td>"+element.Data_Nascimento+"</td> "+
+                "<td>"+dataNascimento+"</td> "+
                 "<td>"+element.Cep+"</td> "+
                 "<td>"+element.Endereco+"</td> "+
                 "<td>"+element.Complemento_Endereco+"</td> "+
@@ -44,10 +49,8 @@ _carregarLista()
         } 
         
         $("#loader").hide();
-=======
             return data;        
             $("#loader").hide();
->>>>>>> be9cfd4567f4b06959a8d14bda16516fb3ae5c13
     });
 }
 
@@ -61,11 +64,11 @@ function _inserirPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-            return foi;
-        },
-        error: function(erro){
-           return erro;      
-        }
+            _toastSucesso(foi);
+         },
+         error: function(erro){
+            _toastErro(erro);  
+         }
     });   
 }
 
@@ -76,12 +79,12 @@ function _removerPessoas(idPessoa)
         url: root + 'Pessoa/'+idPessoa,
         method: 'Delete',
         dataType: 'json',
-        success: function(result){
-           return result;                            
-        },
-        error: function(erro){
-            return erro;      
-        }
+        success: function(foi){
+            _toastSucesso(foi);
+         },
+         error: function(erro){
+            _toastErro(erro);  
+         }
       }); 
 }
 
@@ -95,10 +98,10 @@ function _alterarPessoas(pessoa)
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(foi){
-           return foi;
+           _toastSucesso(foi);
         },
         error: function(erro){
-            return erro;       
+           _toastErro(erro);  
         }
     });
 }
@@ -112,8 +115,37 @@ function _retornaPorId(id)
         dataType: 'json',
         }).then(function(data){
             console.log(JSON.stringify(data));
-            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"&sexo="+data.Id_Sexo+"&escolaridade="+data.Id_Escolaridade+"&cep="+data.Cep+"&endereco="+data.Endereco+"&cpf="+data.Cpf+"&nascimento="+data.Data_Nascimento+"&rg="+data.Rg+"&complemento="+Complemento_Endereco+"";   
+            var queryString = "id="+data.Id+"&nome="+data.Nome+"&email="+data.Email+"&telefone="+data.Telefone+"&sexo="+data.Id_Sexo+"&escolaridade="+data.Id_Escolaridade+"&cep="+data.Cep+"&endereco="+data.Endereco+"&cpf="+data.Cpf+"&nascimento="+data.Data_Nascimento+"&rg="+data.Rg+"&complemento="+data.Complemento_Endereco+"";   
             $(location).attr('href', 'Cadastro.html?'+queryString);
+        });
+}
+
+function _toastSucesso(sucesso)
+{
+    toastr.success(sucesso);
+    // da uma segurada pra aparecer o toast
+    setTimeout(function(){
+        $(location).attr('href', 'Lista.html'); 
+    }, 2400);
+    ClearCadastro();
+}
+
+function _toastErro(erro)
+{
+    toastr.error(erro.responseText); 
+}
+
+function _retornaEndereco(endCep)
+{
+    //console.log(endCep);
+    var url = "https://viacep.com.br/ws/"+endCep+"/json/";
+    $.ajax({
+    url:url,
+        method: 'GET',
+        dataType: 'json',
+        }).then(function(data){
+            //console.log(JSON.stringify(data));
+            $("#txtEndereco").val(data.logradouro);
         });
 }
 

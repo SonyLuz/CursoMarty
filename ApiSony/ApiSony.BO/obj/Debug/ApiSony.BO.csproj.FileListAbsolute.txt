@@ -16,9 +16,9 @@ D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.AddC
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.alterescolaridadesexo.resources
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.alterescolaridadesexoadd.resources
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.AlteracaoPessoa.resources
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.AlterCep.resources
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csproj.GenerateResource.Cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csproj.CoreCompileInputs.cache
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.pdb
-D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csprojResolveAssemblyReference.cache
-D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.AlterCep.resources
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.Altertipodado.resources

@@ -62,13 +62,13 @@ namespace ApiSonyNegocio.NegocioPessoa
                 {
                     if (pessoa != null)
                     {
-                        bool validaCPF = BuscaCPF(pessoa.Cpf);
-                        if(validaCPF)
+                        bool validaCPF = BuscaCPF(pessoa.Cpf.ToString());
+                        if (validaCPF)
                         {
                             msg = "CPF já Cadastrado!!!";
                             return false;
                         }
-                            
+
                         pessoa.Id = Guid.NewGuid();
                         context.Pessoa.Add(pessoa);
                         context.SaveChanges();
@@ -183,14 +183,24 @@ namespace ApiSonyNegocio.NegocioPessoa
         {
             try
             {
-                using (var context = new ApiSonyEntity())
+                
+                decimal numero = 0;
+                if (decimal.TryParse(cpf, out numero))
                 {
-                    var pessoa = context.Pessoa.Where(p => p.Cpf.Equals(cpf)).FirstOrDefault();
-                    if (pessoa != null)
-                        return true;
-                    else
-                        return false;
+                    using (var context = new ApiSonyEntity())
+                    {
+                        var pessoa = context.Pessoa.Select(p => p.Cpf == numero).FirstOrDefault();
+                        if (pessoa)
+                            return true;
+                        else
+                            return false;
+                    }
+                } 
+                else
+                {
+                    return true;
                 }
+
             }
             catch (Exception ex)
             {

@@ -93,7 +93,7 @@
         </div>
         <div class="col-md-12" style="padding-top:10px;">
             <label>CEP: </label>
-            <input class="form-control" type="text" id="txtCep">
+            <input class="form-control" type="text" id="txtCep"  onblur="BuscaCep()">
         </div>
         <div class="col-md-12" style="padding-top:10px;">
             <label>Endereço: </label>
@@ -107,7 +107,7 @@
     <div class="col-md-12" style="padding:25px;">
         <!-- <button id="btn1" type="submit" class="btn btn-primary btn-lg" onclick="imprimir();">Submit</button>                                    
         <button id="btn2" type="submit" class="btn btn-primary btn-lg">Alerta</button>                                     -->
-        <button id="btn3" type="submit" class="btn btn-success btn-lg">Cadastrar</button>                                    
+        <button id="btn3" type="submit" class="btn btn-success btn-lg" onclick="Cadastrar()">Cadastrar</button>                                    
         <button id="btn4" type="submit" class="btn btn-primary btn-lg">Atualizar</button>                                    
     </div>
     <div class="content">
@@ -125,6 +125,7 @@
         $('#txtTelefone').mask('(99)9999-9999');
         $('#txtCep').mask('99999-999');
         $('#txtCpf').mask('999.999.999-99');
+        $('#txtRg').mask('99999999');
        return false;
    });
 </SCRIPT>
