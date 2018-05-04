@@ -22,3 +22,4 @@ D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csproj.CoreComp
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.dll
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.pdb
 D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.Migrations.Altertipodado.resources
+D:\CursoMarty\CursoMarty\ApiSony\ApiSony.BO\obj\Debug\ApiSony.BO.csprojResolveAssemblyReference.cache
